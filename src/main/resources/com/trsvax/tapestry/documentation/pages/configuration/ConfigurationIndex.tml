@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+
+<t:grid source="collection" row="serviceDef" add="configType, view, javaDoc" >
+	<p:configTypeCell>${configType}</p:configTypeCell>
+	<p:viewCell><t:pagelink page="documentation/configuration/View" context="serviceDef">view</t:pagelink></p:viewCell>
+	<p:javaDocCell><a href="${javaDoc}">JavaDoc</a></p:javaDocCell>
+</t:grid>
+
+</body>
+
+</html>

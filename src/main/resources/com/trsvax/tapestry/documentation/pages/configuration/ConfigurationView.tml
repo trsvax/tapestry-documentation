@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+<h2>${serviceDef.serviceId}</h2>
+<t:beandisplay object="serviceDef"/>
+<h3>Markers</h3>
+<t:grid source="serviceDef.markers" />
+
+
+${configurationType} ${configuration.size()}
+
+<t:if test="configuration.size()">
+<t:if test="map">
+	<t:grid source="configuration" row="entry" add="id,value,string,javaDoc">
+	<p:idCell>${entry.key}</p:idCell>
+	<p:valueCell>${entry.value}</p:valueCell>
+	<p:stringCell>${entry.value.toString()}</p:stringCell>
+	<p:javaDocCell><a href="${javaDoc}">javaDoc</a></p:javaDocCell>
+	</t:grid>
+<p:else>
+	<t:grid source="configuration" row="row" model="model" add="javaDoc">
+		<p:javaDocCell><a href="${javaDocRow}">javaDoc</a></p:javaDocCell>
+	
+	</t:grid>
+</p:else>
+</t:if>
+</t:if>
+
+
+
+</body>
+
+</html>
